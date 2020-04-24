@@ -13,6 +13,10 @@ export class BeforeUnloadListener {
         return new BeforeUnloadListener(initialMessage);
     }
 
+    public static get listening() {
+        return this._listened;
+    }
+
     private static _listened: boolean;
 
     private _message?: MessageExecuter;
@@ -27,6 +31,10 @@ export class BeforeUnloadListener {
         this.release = this.release.bind(this);
 
         this._beforeUnloadFunction = this._beforeUnloadFunction.bind(this);
+    }
+
+    public get listening(): boolean {
+        return this._activated;
     }
 
     public setMessage(message: string): this {
