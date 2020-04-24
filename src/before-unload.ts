@@ -11,6 +11,8 @@ export class BeforeUnloadListener {
         return new BeforeUnloadListener(initialMessage);
     }
 
+    private static _listened: boolean;
+
     private _message: string;
     private _activated: boolean;
 
@@ -33,10 +35,18 @@ export class BeforeUnloadListener {
 
     public active(): this {
 
+        if (BeforeUnloadListener._listened) {
+
+            throw new Error('[BWNL-Listener] Another BeforeUnload Listener is already activated');
+        }
+
         if (this._activated) {
+
+            console.warn('[BWNL-Listener] This Listener is already activated');
             return this;
         }
 
+        BeforeUnloadListener._listened = true;
         this._activated = true;
         window.addEventListener('beforeunload', this._beforeUnloadFunction);
         return this;
@@ -44,10 +54,16 @@ export class BeforeUnloadListener {
 
     public release(): this {
 
+        if (!BeforeUnloadListener._listened) {
+
+            return this;
+        }
+
         if (!this._activated) {
             return this;
         }
 
+        BeforeUnloadListener._listened = false;
         this._activated = false;
         window.removeEventListener('beforeunload', this._beforeUnloadFunction);
         return this;
