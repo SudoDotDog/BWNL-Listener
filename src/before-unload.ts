@@ -19,6 +19,9 @@ export class BeforeUnloadListener {
         this._message = initialMessage;
         this._activated = false;
 
+        this.active = this.active.bind(this);
+        this.release = this.release.bind(this);
+
         this._beforeUnloadFunction = this._beforeUnloadFunction.bind(this);
     }
 
@@ -34,6 +37,7 @@ export class BeforeUnloadListener {
             return this;
         }
 
+        this._activated = true;
         window.addEventListener('beforeunload', this._beforeUnloadFunction);
         return this;
     }
@@ -44,6 +48,8 @@ export class BeforeUnloadListener {
             return this;
         }
 
+        this._activated = false;
+        window.removeEventListener('beforeunload', this._beforeUnloadFunction);
         return this;
     }
 
