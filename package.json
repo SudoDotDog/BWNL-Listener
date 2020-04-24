@@ -1,0 +1,58 @@
+{
+  "name": "@bwnl/listener",
+  "version": "1.0.0",
+  "description": ":rabbit: Listener controller",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SudoDotDog/BWNL-Listener.git"
+  },
+  "author": "WMXPY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SudoDotDog/BWNL-Listener/issues"
+  },
+  "homepage": "https://github.com/SudoDotDog/BWNL-Listener#readme",
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-info": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "@sudoo/io": "^1.7.0",
+    "@sudoo/mock": "^1.3.0",
+    "@sudoo/react-force": "^1.7.1",
+    "@sudoo/react-force-dev": "^1.7.1",
+    "@sudoo/triforce": "^2.3.1",
+    "babel-loader": "^8.1.0",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "ts-loader": "^7.0.0",
+    "ts-node": "^8.9.0",
+    "typescript": "^3.8.3"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "instrument": true,
+    "reporter": [
+      "json",
+      "text-summary"
+    ],
+    "report-dir": "coverage",
+    "require": [
+      "./test/tshook.js"
+    ],
+    "sourceMap": true
+  }
+}
