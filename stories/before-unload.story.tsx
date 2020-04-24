@@ -13,8 +13,7 @@ export default {
     title: 'Before Unload',
 };
 
-const dynamicBeforeUnload: BeforeUnloadListener = BeforeUnloadListener.create();
-const fallbackBeforeUnload: BeforeUnloadListener = BeforeUnloadListener.create();
+const dynamicBeforeUnload: BeforeUnloadListener = BeforeUnloadListener.create('Dynamic');
 
 export const Dynamic: React.SFC = () => {
 
@@ -24,18 +23,6 @@ export const Dynamic: React.SFC = () => {
         >Active</button>
         <button
             onClick={dynamicBeforeUnload.release}
-        >Release</button>
-    </div>);
-};
-
-export const ClipboardAPI: React.SFC = () => {
-
-    return (<div>
-        <button
-            onClick={fallbackBeforeUnload.active}
-        >Active</button>
-        <button
-            onClick={fallbackBeforeUnload.release}
         >Release</button>
     </div>);
 };
