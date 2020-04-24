@@ -35,18 +35,55 @@ export class BeforeUnloadListener {
         return this;
     }
 
+    public attemptActive(): this {
+
+        if (BeforeUnloadListener._listened) {
+            return this;
+        }
+        if (this._activated) {
+            return this;
+        }
+
+        return this._activeListener();
+    }
+
     public active(): this {
 
         if (BeforeUnloadListener._listened) {
-
             throw new Error('[BWNL-Listener] Another BeforeUnload Listener is already activated');
         }
-
         if (this._activated) {
+            throw new Error('[BWNL-Listener] This BeforeUnload Listener is already activated');
+        }
 
-            console.warn('[BWNL-Listener] This Listener is already activated');
+        return this._activeListener();
+    }
+
+    public attemptRelease(): this {
+
+        if (!BeforeUnloadListener._listened) {
             return this;
         }
+        if (!this._activated) {
+            return this;
+        }
+
+        return this._releaseListener();
+    }
+
+    public release(): this {
+
+        if (!BeforeUnloadListener._listened) {
+            throw new Error('[BWNL-Listener] Nothing To Release');
+        }
+        if (!this._activated) {
+            throw new Error('[BWNL-Listener] Nothing To Release');
+        }
+
+        return this._releaseListener();
+    }
+
+    private _activeListener(): this {
 
         BeforeUnloadListener._listened = true;
         this._activated = true;
@@ -54,16 +91,7 @@ export class BeforeUnloadListener {
         return this;
     }
 
-    public release(): this {
-
-        if (!BeforeUnloadListener._listened) {
-
-            return this;
-        }
-
-        if (!this._activated) {
-            return this;
-        }
+    private _releaseListener(): this {
 
         BeforeUnloadListener._listened = false;
         this._activated = false;
