@@ -4,19 +4,21 @@
  * @description Before Unload
  */
 
+import { MessageExecuter, parseMessageExecuter } from "./declare";
+
 export class BeforeUnloadListener {
 
-    public static create(initialMessage: string): BeforeUnloadListener {
+    public static create(initialMessage?: MessageExecuter): BeforeUnloadListener {
 
         return new BeforeUnloadListener(initialMessage);
     }
 
     private static _listened: boolean;
 
-    private _message: string;
+    private _message?: MessageExecuter;
     private _activated: boolean;
 
-    private constructor(initialMessage: string) {
+    private constructor(initialMessage?: MessageExecuter) {
 
         this._message = initialMessage;
         this._activated = false;
@@ -69,11 +71,13 @@ export class BeforeUnloadListener {
         return this;
     }
 
-    private _beforeUnloadFunction(event: BeforeUnloadEvent): string {
+    private _beforeUnloadFunction(event: BeforeUnloadEvent): string | undefined {
 
         event.preventDefault();
         event.returnValue = this._message;
 
-        return this._message;
+        const message: string | undefined = parseMessageExecuter(this._message);
+
+        return message;
     }
 }
