@@ -4,14 +4,29 @@
  * @description Unload
  */
 
+import { ListenerFunction } from "./declare";
+
 export class UnloadListener {
 
-    public static create(): UnloadListener {
+    public static create(listener: ListenerFunction): UnloadListener {
 
-        return new UnloadListener();
+        return new UnloadListener(listener);
     }
 
-    private constructor() {
+    private readonly _listener: ListenerFunction;
 
+    private constructor(listener: ListenerFunction) {
+
+        this._listener = listener;
+    }
+
+    public active() {
+
+
+    }
+
+    private _activeListener() {
+
+        window.addEventListener('unload', this._listener);
     }
 }

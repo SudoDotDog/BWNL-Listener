@@ -14,3 +14,5 @@ export const parseMessageExecuter = (message?: MessageExecuter): string | undefi
     }
     return message;
 };
+
+export type ListenerFunction = () => void;
