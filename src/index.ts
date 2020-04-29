@@ -6,4 +6,5 @@
 
 export * from "./before-unload";
 export * from "./declare";
+export * from "./unload";
 
