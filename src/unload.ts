@@ -39,7 +39,7 @@ export class UnloadListener {
         return this._activeListener();
     }
 
-    public active() {
+    public active(): this {
 
         if (this._activated) {
             throw new Error('[BWNL-Listener] This Unload Listener is already activated');

@@ -8,16 +8,16 @@ import { MessageExecuter, parseMessageExecuter } from "./declare";
 
 export class BeforeUnloadListener {
 
+    private static _listened: boolean;
+
     public static create(initialMessage?: MessageExecuter): BeforeUnloadListener {
 
         return new BeforeUnloadListener(initialMessage);
     }
 
-    public static get listening() {
+    public static get listening(): boolean {
         return this._listened;
     }
-
-    private static _listened: boolean;
 
     private _message?: MessageExecuter;
     private _activated: boolean;
