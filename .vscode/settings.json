@@ -6,6 +6,7 @@
         "codecov",
         "docgen",
         "esnext",
+        "mocharc",
         "sudoo",
         "triforce",
         "tshook"
