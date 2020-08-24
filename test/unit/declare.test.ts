@@ -6,11 +6,19 @@
  */
 
 import { expect } from 'chai';
+import * as Chance from "chance";
+import { parseMessageExecuter } from "../../src";
 
-describe('Placeholder', (): void => {
+describe('Given [Declare] Helper functions', (): void => {
 
-    it('Placeholder', (): void => {
+    const chance: Chance.Chance = new Chance('listener-declare');
 
-        expect(1).to.be.equal(1);
+    it('should be able to parse message executer', (): void => {
+
+        const message: string = chance.string();
+
+        const result: string | undefined = parseMessageExecuter(message);
+
+        expect(result).to.be.equal(message);
     });
 });
