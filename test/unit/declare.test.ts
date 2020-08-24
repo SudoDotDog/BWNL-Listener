@@ -21,4 +21,14 @@ describe('Given [Declare] Helper functions', (): void => {
 
         expect(result).to.be.equal(message);
     });
+
+    it('should be able to parse message executer with function', (): void => {
+
+        const message: string = chance.string();
+        const messageFunction: () => string = () => message;
+
+        const result: string | undefined = parseMessageExecuter(messageFunction);
+
+        expect(result).to.be.equal(message);
+    });
 });
