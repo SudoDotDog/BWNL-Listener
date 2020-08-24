@@ -6,3 +6,11 @@
 [![downloads](https://img.shields.io/npm/dm/@bwnl/listener.svg)](https://www.npmjs.com/package/@bwnl/listener)
 
 :rabbit: Listener controller
+
+## Install
+
+```sh
+npm install @bwnl/shiny-listener --save
+# Or
+yarn add @bwnl/shiny-listener
+```
