@@ -14,3 +14,23 @@ npm install @bwnl/shiny-listener --save
 # Or
 yarn add @bwnl/shiny-listener
 ```
+
+## Usage
+
+```tsx
+import { BeforeUnloadListener } from "@bwnl/listener";
+
+const dynamicBeforeUnload: BeforeUnloadListener = BeforeUnloadListener.create('Dynamic');
+
+export const Dynamic: React.FC = () => {
+
+    return (<div>
+        <button
+            onClick={dynamicBeforeUnload.active}
+        >Active</button>
+        <button
+            onClick={dynamicBeforeUnload.release}
+        >Release</button>
+    </div>);
+};
+```
