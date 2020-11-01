@@ -15,7 +15,7 @@ export default {
 
 const dynamicBeforeUnload: BeforeUnloadListener = BeforeUnloadListener.create('Dynamic');
 
-export const Dynamic: React.SFC = () => {
+export const Dynamic: React.FC = () => {
 
     return (<div>
         <button

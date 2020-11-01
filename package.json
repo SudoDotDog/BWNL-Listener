@@ -27,15 +27,15 @@
     "@storybook/addon-knobs": "^5.3.21",
     "@storybook/react": "^5.3.21",
     "@sudoo/io": "^1.8.0",
-    "@sudoo/mock": "^1.3.0",
-    "@sudoo/react-force": "^1.7.3",
-    "@sudoo/react-force-dev": "^1.7.3",
-    "@sudoo/triforce": "^2.8.1",
+    "@sudoo/mock": "^1.5.0",
+    "@sudoo/react-force": "^1.8.0",
+    "@sudoo/react-force-dev": "^1.8.0",
+    "@sudoo/triforce": "^2.9.6",
     "babel-loader": "^8.1.0",
     "react-docgen-typescript-loader": "^3.7.2",
-    "ts-loader": "^8.0.2",
+    "ts-loader": "^8.0.7",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.5"
   },
   "nyc": {
     "extension": [
