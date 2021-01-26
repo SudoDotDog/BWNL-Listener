@@ -33,7 +33,7 @@
     "@sudoo/triforce": "^2.9.6",
     "babel-loader": "^8.2.2",
     "react-docgen-typescript-loader": "^3.7.2",
-    "ts-loader": "^8.0.7",
+    "ts-loader": "^8.0.10",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
   },
