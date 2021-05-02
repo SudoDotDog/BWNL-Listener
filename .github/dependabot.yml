@@ -1,0 +1,40 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: "@storybook/react"
+    versions:
+    - ">= 6.0.a, < 6.1"
+  - dependency-name: "@storybook/react"
+    versions:
+    - 6.1.19
+    - 6.1.21
+    - 6.2.2
+    - 6.2.3
+    - 6.2.4
+    - 6.2.5
+  - dependency-name: "@storybook/addon-knobs"
+    versions:
+    - 6.1.19
+    - 6.2.2
+    - 6.2.4
+    - 6.2.5
+  - dependency-name: "@storybook/addon-actions"
+    versions:
+    - 6.1.17
+    - 6.1.19
+    - 6.2.2
+    - 6.2.3
+    - 6.2.4
+  - dependency-name: "@sudoo/triforce"
+    versions:
+    - 2.9.22
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.13.1
+    - 7.13.13
