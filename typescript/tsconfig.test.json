@@ -1,7 +1,5 @@
 {
     "compilerOptions": {
-        "alwaysStrict": true,
-        "downlevelIteration": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "jsx": "react",
@@ -18,19 +16,8 @@
         "moduleResolution": "node",
         "noImplicitAny": true,
         "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "removeComments": true,
-        "resolveJsonModule": true,
-        "skipLibCheck": true,
+        "sourceMap": true,
         "strict": true,
-        "strictNullChecks": true
-    },
-    "exclude": [
-        "../node_modules"
-    ],
-    "include": [
-        "../src/**/*",
-        "../story/**/*",
-        "../test/**/*"
-    ]
+        "target": "ES2020"
+    }
 }
