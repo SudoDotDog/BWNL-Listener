@@ -1,7 +1,7 @@
 {
   "name": "@bwnl/listener",
   "version": "1.2.0",
-  "description": ":rabbit: Listener controller",
+  "description": "Listener controller",
   "directories": {
     "doc": "docs"
   },
@@ -15,23 +15,20 @@
     "url": "https://github.com/SudoDotDog/BWNL-Listener/issues"
   },
   "homepage": "https://github.com/SudoDotDog/BWNL-Listener#readme",
-  "peerDependencies": {
-    "react": "*",
-    "react-dom": "*"
-  },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-knobs": "^6.4.0",
     "@storybook/react": "^6.4.19",
-    "@sudoo/io": "^1.8.0",
+    "@sudoo/build-utils": "^1.0.0",
+    "@sudoo/license": "^1.1.0",
     "@sudoo/mock": "^1.5.0",
     "@sudoo/react-force": "^1.10.1",
     "@sudoo/react-force-dev": "^1.10.1",
-    "@sudoo/triforce": "^2.18.0",
+    "@sudoo/triforce": "^2.18.1",
     "babel-loader": "^8.2.3",
+    "levenary": "^1.1.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "ts-loader": "^9.2.8",
     "ts-node": "^10.7.0",
@@ -42,7 +39,8 @@
       ".ts"
     ],
     "include": [
-      "src/**/*.ts"
+      "src/**/*.ts",
+      "src/**/*.tsx"
     ],
     "instrument": true,
     "reporter": [

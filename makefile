@@ -1,5 +1,6 @@
 # Paths
-tsconfig_build_path := typescript/tsconfig.build.json
+build := typescript/tsconfig.build.json
+dev := typescript/tsconfig.dev.json
 
 # NPX functions
 tsc := node_modules/.bin/tsc
@@ -8,8 +9,11 @@ build-storybook := node_modules/.bin/build-storybook
 mocha := node_modules/.bin/mocha
 ts_node := node_modules/.bin/ts-node
 eslint := node_modules/.bin/eslint
+nyc := node_modules/.bin/nyc
 
-.IGNORE: clean-linux
+# Build functions
+build_utils := node_modules/.bin/build-utils
+license_package := node_modules/.bin/license-package
 
 main: run
 
@@ -22,8 +26,8 @@ story:
 	@NODE_ENV=development $(build-storybook)
 
 build:
-	@echo "[INFO] Building for release"
-	@NODE_ENV=production $(tsc) --p $(tsconfig_build_path)
+	@echo "[INFO] Building for production"
+	@NODE_ENV=production $(tsc) --p $(build)
 
 tests:
 	@echo "[INFO] Testing with Mocha"
@@ -33,7 +37,7 @@ tests:
 cov:
 	@echo "[INFO] Testing with Nyc and Mocha"
 	@NODE_ENV=test \
-	nyc $(mocha) --config test/.mocharc.json
+	$(nyc) $(mocha) --config test/.mocharc.json
 
 lint:
 	@echo "[INFO] Linting"
@@ -61,25 +65,17 @@ outdated: install
 
 license: clean
 	@echo "[INFO] Sign files"
-	@NODE_ENV=development $(ts_node) script/license.ts
+	@NODE_ENV=development $(license_package) license app
 
-clean: clean-linux
+clean:
 	@echo "[INFO] Cleaning release files"
-	@NODE_ENV=development $(ts_node) script/clean-app.ts
+	@NODE_ENV=development $(build_utils) clean-path app
 
-clean-linux:
-	@echo "[INFO] Cleaning dist files"
-	@rm -rf dist
-	@rm -rf build
-	@rm -rf .nyc_output
-	@rm -rf coverage
-	@rm -rf storybook-static
-
-publish: install lint tests license build
+publish: install tests lint license build
 	@echo "[INFO] Publishing package"
 	@cd app && npm publish --access=public
 
-publish-dry-run: install lint tests license build
+publish-dry-run: install tests lint license build
 	@echo "[INFO] Publishing package"
 	@cd app && npm publish --access=public --dry-run
 
