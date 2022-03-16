@@ -8,7 +8,6 @@
 import * as React from 'react';
 import { BeforeUnloadListener } from "../src";
 
-// tslint:disable-next-line: no-default-export
 export default {
     title: 'Before Unload',
 };
