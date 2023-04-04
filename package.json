@@ -20,7 +20,7 @@
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-knobs": "^6.4.0",
-    "@storybook/react": "^6.5.16",
+    "@storybook/react": "^7.0.2",
     "@sudoo/build-utils": "^1.0.0",
     "@sudoo/license": "^2.1.0",
     "@sudoo/mock": "^1.5.0",
