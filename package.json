@@ -17,7 +17,7 @@
   "homepage": "https://github.com/SudoDotDog/BWNL-Listener#readme",
   "devDependencies": {
     "@babel/core": "^7.21.5",
-    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-actions": "^7.0.7",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-knobs": "^6.4.0",
     "@storybook/react": "^6.5.16",
